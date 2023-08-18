@@ -10,6 +10,8 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($_POST as $field => $content) {
+        $content = mysqli_real_escape_string($conn, $content); // Escape and sanitize content
+        
         if (preg_match('/^(.+?)-(.+)$/', $field, $matches)) {
             $divid = $matches[1];
             $type = $matches[2];
@@ -19,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $query = "SELECT id FROM Content WHERE divid = '$divid' AND type = 'link'";
                 $result = $conn->query($query);
 
-                $url = $_POST["$divid-link-href"];
+                $url = mysqli_real_escape_string($conn, $_POST["$divid-link-href"]); // Escape and sanitize URL
                 if ($result->num_rows > 0) {
                     // Update the existing link record's URL
                     $updateQuery = "UPDATE Content SET url = '$url' WHERE divid = '$divid' AND type = 'link'";
@@ -34,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $query = "SELECT id FROM Content WHERE divid = '$divid' AND type = 'link'";
                 $result = $conn->query($query);
 
-                $linkText = $_POST["$divid-link-text"];
+                $linkText = mysqli_real_escape_string($conn, $_POST["$divid-link-text"]); // Escape and sanitize link text
                 if ($result->num_rows > 0) {
                     // Update the existing link record's content
                     $updateQuery = "UPDATE Content SET content = '$linkText' WHERE divid = '$divid' AND type = 'link'";
@@ -50,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result = $conn->query($query);
 
                 if ($type === "image") {
-                    $url = $_POST["$divid-image"];
+                    $url = mysqli_real_escape_string($conn, $_POST["$divid-image"]); // Escape and sanitize image URL
                     if ($result->num_rows > 0) {
                         // Update the existing image record's URL
                         $updateQuery = "UPDATE Content SET url = '$url' WHERE divid = '$divid' AND type = 'image'";
