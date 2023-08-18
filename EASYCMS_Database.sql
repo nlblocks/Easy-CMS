@@ -1,0 +1,24 @@
+SET SQL_MODE = "";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE DATABASE IF NOT EXISTS `EASYCMS_Database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `EASYCMS_Database`;
+
+CREATE TABLE `Content` (
+  `id` int NOT NULL,
+  `divid` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  `content` varchar(10000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `Content`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUECOMBI` (`divid`,`type`);
+
+ALTER TABLE `Content`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+COMMIT;
