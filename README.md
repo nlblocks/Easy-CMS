@@ -28,7 +28,7 @@ For Example, you add the following to your index.html:
 
 Easy CMS grabs the CMS-*yourID* id tag and looks for which tags are inside it, at this moment, all 4 tags are inside it so it shows the input fields for all of them in the interface:
 
-###!! Add image !!
+![](https://i.imgur.com/VhBXsh8.jpg)
 
 you can change the values of the fields, press "submit" and it will change the value of the fields you edited.
 
