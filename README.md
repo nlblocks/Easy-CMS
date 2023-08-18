@@ -59,7 +59,8 @@ Per div, but you can add a endless amount of divs.
 
 
 ### Disclaimer
-Although there is a login system and i am reasonably sure it is safe, i am **NOT** a Cybersecurity expert and i coding is a just a hobby of mine, not my professional job.
+Although there is a login system and i am reasonably sure it is safe, i am **NOT** a Cybersecurity expert and programming is a just a hobby of mine, not my professional job.
 
 **Usage is at your own risk!**
+
 I am not liable in anyway.
